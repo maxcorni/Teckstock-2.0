@@ -1,0 +1,10 @@
+<tr>
+    <td>{{ produit.reference }}</td>
+    <td>{{ produit.categorie.nom }}</td>
+    <td>{{ produit.libelle }}</td>
+    <td>{{ produit.prix }}</td>
+    <td>{{ produit.stock | statusStock }}</td>
+    <td><a href="{{ path('produit_show', {'id': produit.id}) }}"><img src="{{ asset('images/icons/eye.png') }}" alt="eye icon"></button></td>
+    <td><a href="{{ path('produit_update', {'id': produit.id}) }}"><img src="{{ asset('images/icons/edit.png') }}" alt="edit icon"></button></td>
+    <td><a href="{{ path('produit_show', {'id': produit.id}) }}"><img src="{{ asset('images/icons/trash.png') }}" alt="delete icon"></button></td>
+</tr>

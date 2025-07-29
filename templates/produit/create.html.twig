@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Backoffice
+{% endblock %}
+
+{% block body %}
+	<main class="container">
+		<div class="title">
+			<h1>Formulaire de creation d'un produit</h1>
+		</div>
+		<div class="col">
+			<div class="produit-details">
+				{{ form_start(form, {'attr' : {'novalidate': 'novalidate', 'data-turbo': 'false'}}) }}
+				<div>
+					{{ form_label(form.reference) }}
+					{{ form_widget(form.reference, {'attr': {'class': 'form-control' ~ (form.reference.vars.errors|length > 0 ? "input-errors" : "")}}) }}
+					<div class="p-error">
+						{{ form_errors(form.reference) }}
+					</div>
+				</div>
+
+				<div>
+					{{ form_label(form.libelle) }}
+					{{ form_widget(form.libelle, {'attr': {'class': 'form-control' ~ (form.libelle.vars.errors|length > 0 ? "input-errors" : "")}}) }}
+					<div class="p-error">
+						{{ form_errors(form.libelle) }}
+					</div>
+				</div>
+
+				<div>
+					{{ form_label(form.categorie) }}
+					{{ form_widget(form.categorie, {'attr': {'class': 'form-control' ~ (form.categorie.vars.errors|length > 0 ? "input-errors" : "")}}) }}
+					<div class="p-error">
+						{{ form_errors(form.categorie) }}
+					</div>
+				</div>
+
+				<div>
+					{{ form_label(form.description) }}
+					{{ form_widget(form.description, {'attr': {'class': 'form-control' ~ (form.description.vars.errors|length > 0 ? "input-errors" : "")}}) }}
+					<div class="p-error">
+						{{ form_errors(form.description) }}
+					</div>
+				</div>
+
+				<div>
+					{{ form_label(form.prix) }}
+					{{ form_widget(form.prix, {'attr': {'class': 'form-control' ~ (form.prix.vars.errors|length > 0 ? "input-errors" : "")}}) }}
+					<div class="p-error">
+						{{ form_errors(form.prix) }}
+					</div>
+				</div>
+
+				<div>
+					{{ form_label(form.imageFile) }}
+					{{ form_widget(form.imageFile, {'attr': {'class': 'form-control' ~ (form.imageFile.vars.errors|length > 0 ? "input-errors" : "")}}) }}
+					<div class="p-error">
+						{{ form_errors(form.imageFile) }}
+					</div>
+				</div>
+
+				<div>
+					{{ form_label(form.stock) }}
+					{{ form_widget(form.stock, {'attr': {'class': 'form-control' ~ (form.stock.vars.errors|length > 0 ? "input-errors" : "")}}) }}
+					<div class="p-error">
+						{{ form_errors(form.stock) }}
+					</div>
+				</div>
+
+				{{ form_widget(form) }}
+
+				<input type="submit" value="Enregistrer" class="primary-btn">
+
+				{{ form_end(form) }}
+
+				<a href="{{ path('produit_index') }}" class="primary-btn">Retour à la liste</a>
+			</div>
+		</div>
+		<footer class="footer"></footer>
+	</main>
+{% endblock %}

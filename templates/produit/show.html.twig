@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Backoffice{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <div class="title">
+            <h1>Détails du produit</h1>
+        </div>
+        <div class="col">
+            <div class="produit-details">
+                <ul>
+                    <li><strong>{{ produit.libelle }}</strong></li>
+                    <li><strong>Description :</strong> {{ produit.description }}</li>
+                    <li><strong>Réference :</strong> {{ produit.reference }}</li>
+                    <li><strong>Prix :</strong> {{ produit.prix }} €</li>
+                    <li><strong>Catégorie :</strong> {{ produit.categorie.nom }}</li>
+                    <li><strong>Stock :</strong> {{ produit.stock }}</li>
+                    <li>
+                    {% if produit.photo %}
+                        <img src="{{ asset('images/imagesProduits/' ~ produit.photo) }}" alt="Image du produit" class="image-produit">
+                    {% endif %}
+                    </li>
+                    <li><a href="{{ path('produit_index') }}" class="primary-btn">Retour à la liste</a></li>
+                </ul>
+            </div>
+        <footer class="footer"></footer>
+    </main>
+{% endblock %}
+

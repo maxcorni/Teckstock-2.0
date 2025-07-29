@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Backoffice{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <div class="title">
+            <button onclick="refresh()" class="refresh-btn"><h1>Liste des produits</h1></button>
+        </div>
+        <div class="action">
+            <div class="search-container">
+                {{ form_start(form, {'method': 'GET', 'attr': {'class': 'search-form'}}) }}
+                    <div>
+                        {{ form_widget(form.q, {'attr': {'class': 'search-bar'}}) }}
+                        <div class="p-error">
+                            {{ form_errors(form.q) }}
+                        </div>
+                        <button type="submit" class="search-btn"><img src="{{ asset('images/icons/search.png') }}" alt="Search icon"></button>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+            <div class="row">
+                <div class="trash-button">
+                    <button class="primary-btn" id="trashButton">Poubelle</button>
+                </div>
+                <div class="add-button">
+                    <a href="{{ path('produit_create') }}" class="primary-btn" id="addButton"><img src="{{ asset('images/icons/plus.png') }}" alt="Plus icon">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Réference</th>
+                    <th>Catégorie</th>
+                    <th>Libelle</th>
+                    <th>Prix</th>
+                    <th>En stock</th>
+                    <th colspan="3">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="listeProduits">
+                {% for produit in produits %}
+                    {% include 'produit/_produit.html.twig' %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <footer class="footer"></footer>
+    </main>
+{% endblock %}
+
