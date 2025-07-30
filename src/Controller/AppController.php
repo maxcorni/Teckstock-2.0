@@ -11,6 +11,8 @@ final class AppController extends AbstractController
     #[Route('/', name: 'app_app')]
     public function index(): Response
     {
+        // $this->getuser()
+        // $this->is_granted('ROLE_ADMIN')
         return $this->render('app/index.html.twig', [
             'controller_name' => 'AppController',
         ]);
